@@ -1,0 +1,263 @@
+/* Comprehensive Mobile Responsive Styles for KadiPore Chilli Farms */
+
+/* Mobile-first responsive breakpoints */
+/* sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px */
+
+@layer utilities {
+  /* Mobile-specific typography */
+  .mobile-title {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  .mobile-subtitle {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  .mobile-text {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  .mobile-small-text {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+
+  /* Mobile padding and margins */
+  .mobile-padding {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12;
+  }
+  
+  .mobile-section-padding {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20;
+  }
+  
+  .mobile-card-padding {
+    @apply p-3 sm:p-4 md:p-6;
+  }
+
+  /* Mobile grid layouts */
+  .mobile-grid-1-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .mobile-grid-1-2-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .mobile-grid-1-2-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8;
+  }
+
+  /* Mobile buttons */
+  .mobile-btn {
+    @apply px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base;
+  }
+  
+  .mobile-btn-large {
+    @apply px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg;
+  }
+
+  /* Mobile images */
+  .mobile-img-hero {
+    @apply h-40 sm:h-48 md:h-64 lg:h-80 xl:h-96;
+  }
+  
+  .mobile-img-card {
+    @apply h-32 sm:h-40 md:h-48;
+  }
+  
+  .mobile-img-product {
+    @apply h-24 sm:h-32 md:h-40;
+  }
+
+  /* Mobile containers */
+  .mobile-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-card {
+    @apply rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+
+  /* Mobile navigation */
+  .mobile-nav-item {
+    @apply block py-2 px-4 text-sm sm:text-base hover:bg-gray-100 transition-colors;
+  }
+
+  /* Mobile forms */
+  .mobile-input {
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border rounded-lg;
+  }
+  
+  .mobile-textarea {
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border rounded-lg min-h-[100px] sm:min-h-[120px];
+  }
+
+  /* Mobile spacing */
+  .mobile-space-y {
+    @apply space-y-3 sm:space-y-4 md:space-y-6;
+  }
+  
+  .mobile-space-x {
+    @apply space-x-2 sm:space-x-3 md:space-x-4;
+  }
+
+  /* Mobile flexbox utilities */
+  .mobile-flex-col {
+    @apply flex flex-col sm:flex-row items-center;
+  }
+  
+  .mobile-flex-center {
+    @apply flex flex-col items-center justify-center text-center;
+  }
+
+  /* Mobile visibility */
+  .mobile-hidden {
+    @apply hidden sm:block;
+  }
+  
+  .mobile-only {
+    @apply block sm:hidden;
+  }
+
+  /* Mobile touch targets (minimum 44px for accessibility) */
+  .mobile-touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+
+  /* Mobile safe areas for devices with notches */
+  .mobile-safe-top {
+    @apply pt-safe-top;
+  }
+  
+  .mobile-safe-bottom {
+    @apply pb-safe-bottom;
+  }
+
+  /* Mobile overflow handling */
+  .mobile-scroll {
+    @apply overflow-x-auto scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-gray-200;
+  }
+
+  /* Mobile hover states (disabled on touch devices) */
+  @media (hover: hover) {
+    .mobile-hover-scale:hover {
+      @apply transform scale-105;
+    }
+    
+    .mobile-hover-shadow:hover {
+      @apply shadow-xl;
+    }
+  }
+
+  /* Mobile focus states for better accessibility */
+  .mobile-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  /* Mobile typography improvements */
+  .mobile-readable {
+    @apply leading-relaxed tracking-wide;
+  }
+
+  /* Mobile performance optimizations */
+  .mobile-gpu-accelerated {
+    @apply transform-gpu backface-hidden;
+  }
+}
+
+/* Mobile-specific animations with reduced motion support */
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-animate-slide-up {
+    animation: mobileSlideUp 0.6s ease-out forwards;
+  }
+  
+  .mobile-animate-fade-in {
+    animation: mobileFadeIn 0.8s ease-out forwards;
+  }
+}
+
+@keyframes mobileSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Disable animations on mobile if preferred */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-animate-slide-up,
+  .mobile-animate-fade-in {
+    animation: none;
+  }
+}
+
+/* Mobile-specific fixes */
+@media screen and (max-width: 768px) {
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better touch scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent zoom on form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+  
+  /* Better button tap targets */
+  button,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Fix viewport units on mobile */
+  .min-h-screen-mobile {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+  .mobile-xs-text {
+    @apply text-xs;
+  }
+  
+  .mobile-xs-padding {
+    @apply px-2 py-1;
+  }
+  
+  .mobile-xs-container {
+    @apply px-2;
+  }
+}
+
+/* Landscape mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .mobile-landscape-compact {
+    @apply py-2;
+  }
+}

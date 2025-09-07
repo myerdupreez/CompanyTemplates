@@ -1,0 +1,17 @@
+[phases.setup]
+nixPkgs = ["nodejs_18", "python311"]
+
+[phases.build]
+cmds = [
+    "cd frontend && npm ci --only=production && npm run build",
+    "cd backend && pip install -r requirements.txt"
+]
+
+[phases.install]
+cmds = [
+    "mkdir -p backend/staticfiles",
+    "cp -r frontend/dist/* backend/staticfiles/"
+]
+
+[start]
+cmd = "cd backend && python manage.py collectstatic --noinput && python manage.py migrate && python manage.py create_default_admin && gunicorn wsgi:application --bind 0.0.0.0:$PORT"

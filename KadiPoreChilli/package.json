@@ -1,0 +1,12 @@
+{
+  "name": "deploy-to-netlify",
+  "version": "1.0.0",
+  "scripts": {
+    "netlify:build": "cd frontend && npm install && npm run build",
+    "netlify:dev": "cd frontend && npm run dev",
+    "netlify:preview": "cd frontend && npm run preview",
+    "install:frontend": "cd frontend && npm install",
+    "test:chatbot": "echo 'Open frontend/src/tests/chatbot-test.html in browser to test chatbot'"
+  },
+  "description": "Deployment scripts for KadiPore Chilli Farms website on Netlify"
+}
